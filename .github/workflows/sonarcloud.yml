@@ -2,18 +2,23 @@ name: SonarCloud workflow
 on:
   push:
     branches:
-      - main
+      - main  # Replace with your default branch (e.g., master or main)
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  sonarqube:
-    name: SonarQube
+  sonarcloud:
+    name: SonarCloud
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v4
+          fetch-depth: 0  # Disable shallow clones for better analysis
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '23'  # Use the JDK version you need
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed for PR information
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}    # SonarCloud token
