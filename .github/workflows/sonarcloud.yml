@@ -17,3 +17,5 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: 08aa359b0f24f12f55601d56e0b93f506362b65f
+          SONAR_PROJECT_KEY: plwn
+          SONAR_ORGANIZATION: plynch
