@@ -18,4 +18,4 @@ jobs:
         env:
           SONAR_TOKEN: 04c161769e1d29b163cdaff630c6ad379bbd65ce
           SONAR_PROJECT_KEY: HolidayTravelVehicles
-          SONAR_ORGANIZATION: plnw 
+          SONAR_ORGANIZATION: plynch 
