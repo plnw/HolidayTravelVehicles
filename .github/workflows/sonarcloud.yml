@@ -16,6 +16,9 @@ jobs:
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
         env:
-          SONAR_TOKEN: 04c161769e1d29b163cdaff630c6ad379bbd65ce
-          SONAR_PROJECT_KEY: HolidayTravelVehicles
-          SONAR_ORGANIZATION: plynch 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            SONAR_PROJECT_KEY: HolidayTravelVehicles
+            SONAR_ORGANIZATION: plnw 
