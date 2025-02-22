@@ -16,13 +16,12 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v1
         with:
-          distribution: 'temurin'
-          java-version: '23'
+          distribution: 'temurin'  # Specify the Java distribution (e.g., temurin, zulu, corretto)
+          java-version: '23'       # Specify the Java version
       - name: Compile Java Code
         run: |
-          cd HolidayTravelVehicles
           mkdir -p target/classes
-          javac -d target/classes *.java
+          javac -d target/classes *.java  # Compile all .java files in the root directory
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v4.1.0
         env:
@@ -32,5 +31,3 @@ jobs:
           args: >
             -Dsonar.projectKey=plnw_HolidayTravelVehicles
             -Dsonar.organization=plnw
-
-           
