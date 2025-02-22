@@ -20,5 +20,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            SONAR_PROJECT_KEY: HolidayTravelVehicles
             SONAR_ORGANIZATION: plnw 
+            SONAR_PROJECT_KEY: HolidayTravelVehicles
