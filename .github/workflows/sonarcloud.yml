@@ -14,14 +14,17 @@ jobs:
         with:
           fetch-depth: 0
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v1
         with:
           distribution: 'temurin'  # Specify the Java distribution (e.g., temurin, zulu, corretto)
-          java-version: '11'       # Specify the Java version
+          java-version: '23'       # Specify the Java version
       - name: Compile Java Code
         run: |
           mkdir -p target/classes
           javac -d target/classes *.java  # Compile all .java files in the root directory
+      - name: Verify compiled files
+        run: |
+          ls target/classes
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v4.1.0
         env:
