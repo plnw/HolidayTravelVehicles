@@ -18,6 +18,9 @@ jobs:
         with:
           distribution: 'temurin'  # Specify the Java distribution (e.g., temurin, zulu, corretto)
           java-version: '23'       # Specify the Java version
+      - name: list files
+        run: |
+          ls -la
       - name: Compile Java Code
         run: |
           mkdir -p target/classes
