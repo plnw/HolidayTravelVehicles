@@ -21,7 +21,7 @@ jobs:
       - name: Compile Java Code
         run: |
           mkdir -p target/classes
-          javac -d target/classes src/*.java
+          javac -d target/classes *.java
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@v4.1.0
         env:
